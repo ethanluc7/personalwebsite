@@ -1,0 +1,65 @@
+
+
+.purple {
+  background: rgb(88,54,157);
+  background: -moz-linear-gradient(90deg, rgba(88,54,157,1) 0%, rgba(207,106,120,1) 50%, rgba(212,108,118,1) 100%, rgba(255,192,124,1) 100%);
+  background: -webkit-linear-gradient(90deg, rgba(88,54,157,1) 0%, rgba(207,106,120,1) 50%, rgba(212,108,118,1) 100%, rgba(255,192,124,1) 100%);
+  background: linear-gradient(90deg, rgba(88,54,157,1) 0%, rgba(207,106,120,1) 50%, rgba(212,108,118,1) 100%, rgba(255,192,124,1) 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#58369d",endColorstr="#ffc07c",GradientType=1);
+      
+
+  -webkit-text-fill-color: transparent;
+  -webkit-background-clip: text;
+
+  
+}
+
+.blue {
+  background: rgb(18,22,243);
+  background: -moz-linear-gradient(90deg, rgba(18,22,243,1) 0%, rgba(87,204,87,1) 100%);
+  background: -webkit-linear-gradient(90deg, rgba(18,22,243,1) 0%, rgba(87,204,87,1) 100%);
+  background: linear-gradient(90deg, rgba(18,22,243,1) 0%, rgba(87,204,87,1) 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#1216f3",endColorstr="#57cc57",GradientType=1);
+
+  -webkit-text-fill-color: transparent;
+  -webkit-background-clip: text;
+  
+}
+
+.orange {
+  background: #F0A177;
+  -webkit-text-fill-color: transparent;
+  -webkit-background-clip: text;
+}
+
+.green {
+  background: #3B9C39;
+  webkit-text-fill-color: transparent;
+  -webkit-background-clip: text;
+}
+
+
+.grid {
+  display: grid;
+  grid-template-columns: 150px 1fr 50px 100px;
+  grid-template-rows: 120px 1fr;
+  
+  grid-template-areas: 
+      ". nav sidebar ."
+      ". main sidebar ."
+}
+
+.nav {
+  grid-area: nav;
+}
+
+.main {
+  grid-area: main;
+}
+
+.sidebar {
+  grid-area: sidebar;
+}
+
+
+

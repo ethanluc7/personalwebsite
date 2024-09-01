@@ -1,0 +1,120 @@
+import "./SideBar.css";
+import {useState} from 'react';
+import anime from "animejs/lib/anime.es.js";
+
+
+const SideBar = ( {sendData} ) => {
+
+
+  const [startButtonStatus,setStartButtonStatus] = useState(false);
+  const [otherButtonStatus,setOtherButtonStatus] = useState(true);
+  const [colors] = useState(["purple", "blue", "orange", "green"]);
+
+  const returnColor = () => {
+
+    sendData(colors[0]);
+
+  };
+
+  const changeColor = (index) => {   
+
+    [colors[0], colors[index]] = [colors[index], colors[0]]
+
+  };
+
+  const animate = (index) => { 
+  
+    const tl = anime.timeline();
+    
+    if (startButtonStatus === false) {
+      setStartButtonStatus((prevState) => !prevState);
+      
+      
+      tl.add (
+        {
+          targets: ".selector",
+          translateY: function (el) {
+            return [el.getAttribute("data-from"), el.getAttribute("data-to")];
+          },
+          scaleY: [0, 1],
+          duration: 1800,
+          opacity: {
+            value: 1,
+            duration: 10,
+          },
+          delay: anime.stagger(240),
+          complete: function () {
+            setOtherButtonStatus((prevState) => !prevState);
+            
+          }
+        },
+      );
+    } else if (startButtonStatus === true) {
+      setOtherButtonStatus((prevState) => !prevState);
+        
+      tl.add (
+        {
+          targets: ".selector ",
+          translateY: function (el) {
+            return [el.getAttribute("data-to"), 0];
+          },
+          duration: 400,
+          delay: anime.stagger(60),
+          easing: "easeInOutSine",
+          complete: function () {
+            changeColor(index);
+            returnColor();
+            setStartButtonStatus((prevState) => !prevState);
+         
+           
+          }
+        },
+      );
+    }
+  }
+
+
+
+  
+
+  return (
+    
+    <section>
+
+        <div className = "color-selectors">
+
+          <button onClick = { () => { animate() } } disabled = {startButtonStatus} className = { `selector first ${colors[0]}` } />
+          <button onClick = { () => { animate(1) } } disabled = {otherButtonStatus} className = {`selector second ${colors[1]}`} data-from = "0" data-to = "60" />
+          <button onClick = { () => { animate(2) } } disabled = {otherButtonStatus} className = {`selector third  ${colors[2]}`} data-from = "80" data-to= "120"/> 
+          <button onClick = { () => { animate(3) } } disabled = {otherButtonStatus} className = {`selector fourth  ${colors[3]}`} data-from = "140" data-to = "180"/>
+             
+        </div>
+
+        <svg height = "0" width = "0">
+              <defs>
+                <filter id="gooey-effect">
+                  <feGaussianBlur
+                    in="SourceGraphic"
+                    stdDeviation="10"
+                    result="blur"
+                  />
+                  <feColorMatrix
+                    in="blur"
+                    mode="matrix"
+                    values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 20 -9"
+                    result="gooey-effect"
+                  />
+                  <feComposite
+                    in="SourceGraphic"
+                    in2="gooey-effect"
+                    operator="atop"
+                  />
+                </filter>
+              </defs>
+            </svg>
+       
+    </section>
+  )
+}
+
+export default SideBar
