@@ -1,7 +1,9 @@
 import HomePage from './pages/HomePage';
 import AboutPage from './pages/AboutPage';
+import ProjectsPage from './pages/ProjectsPage';
 import { BrowserRouter } from 'react-router-dom';
-import { useState } from 'react';
+import { ColorProvider } from './pages/ColorContext';
+
 import './index.css';
 
 
@@ -11,23 +13,23 @@ import './index.css';
 const App = () => {
 
   
- 
-
-
-
   return (
-    <BrowserRouter>
-        <div>
+    <ColorProvider>
+      <BrowserRouter>
+    
 
-            <HomePage />
-            <AboutPage />
-        
-        
+          <div className = "snap">
 
-      
-      
-        </div>
-    </BrowserRouter>
+              <HomePage />
+              <AboutPage />
+              <ProjectsPage />
+          
+  
+        
+          </div>
+          
+      </BrowserRouter>
+    </ColorProvider>
 
   )
 }
