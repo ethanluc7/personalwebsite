@@ -1,20 +1,21 @@
 import NavBar from "../components/NavBar/NavBar";
 import Hero from "../components/Hero/Hero";
 import SideBar from "../components/SideBar/SideBar";
-import {useState} from "react";
+import { ColorContext } from "./ColorContext";
+import {useContext} from "react";
 import "../index.css";
 
 const HomePage = () => {
 
-  const [color,setColor] = useState("purple");
+  const { color, setColor } = useContext(ColorContext);
 
-  const getColor = (color) => {
-    setColor(color);
-  }
+  const getColor = (newColor) => {
+    setColor(newColor); 
+  };
 
-
+  
   return (
-    <div className = "grid">
+    <div id = "home" className = "grid">
 
       <div className = "nav">
         <NavBar color = {color}/>

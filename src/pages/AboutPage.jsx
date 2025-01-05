@@ -1,12 +1,18 @@
-import React from 'react'
+import { useContext } from "react";
+import { ColorContext } from "./ColorContext";
+import "../index.css";
+import About from "../components/About/About";
 
 const AboutPage = () => {
-  return (
-    <div id="About">
-        good morning
-      
-    </div>
-  )
-}
+  const { color } = useContext(ColorContext);
 
-export default AboutPage
+  return (
+    <div id="about">
+      <div className="about-page">
+        <About color={color} />
+      </div>
+    </div>
+  );
+};
+
+export default AboutPage;
