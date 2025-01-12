@@ -1,7 +1,7 @@
 import anime from "animejs/lib/anime.es.js";
+import { Mail } from "lucide-react";
 import "./NavBar.css";
 import "../../index.css";
-import email from "../../assets/email.png";
 import githubLogo from "../../assets/githublogo.png";
 import linkedInLogo from "../../assets/linkedinlogo.png";
 import { HashLink } from "react-router-hash-link";
@@ -9,35 +9,62 @@ import { useEffect } from "react";
 
 const NavBar = ({ color }) => {
   useEffect(() => {
-    const tl = anime.timeline();
+    const icons = document.querySelectorAll(".icons");
+    const links = document.querySelectorAll(".link");
 
-    tl.add({
-      targets: ".icons, .rose, .first",
-      translateY: [-50, 0],
-      opacity: [0, 1],
-      easing: "easeOutQuad",
-      duration: 700,
-      delay: anime.stagger(240),
-    }).add({
-      targets: ".text",
-      translateY: [50, 0],
-      opacity: [0, 1],
-      easing: "easeOutQuad",
-      duration: 700,
-      delay: anime.stagger(240),
+    icons.forEach((icon) => {
+      icon.addEventListener("mouseenter", () => {
+        anime({
+          targets: icon,
+          scale: 1.2,
+          duration: 300,
+          easing: "easeOutQuad",
+        });
+      });
+
+      icon.addEventListener("mouseleave", () => {
+        anime({
+          targets: icon,
+          scale: 1,
+          duration: 300,
+          easing: "easeOutQuad",
+        });
+      });
     });
+
+    links.forEach((link) => {
+      link.addEventListener("mouseenter", () => {
+        anime({
+          targets: link,
+          scale: 1.2,
+          duration: 300,
+          easing: "easeOutQuad",
+        });
+      });
+
+      link.addEventListener("mouseleave", () => {
+        anime({
+          targets: link,
+          scale: 1,
+          duration: 300,
+          easing: "easeOutQuad",
+        });
+      });
+    });
+
+  
+    return () => {
+      icons.forEach((icon) => {
+        icon.removeEventListener("mouseenter", null);
+        icon.removeEventListener("mouseleave", null);
+      });
+
+      links.forEach((link) => {
+        link.removeEventListener("mouseenter", null);
+        link.removeEventListener("mouseleave", null);
+      });
+    };
   }, []);
-
-  // anime({
-  //     targets: ".header ",          // Target the element with the class "box"
-  //     translateY: [-50, 0],    // Slide down from -100px to its original position
-  //     opacity: [0, 1],          // Fade in from 0 to 1
-  //     duration: 700,           // Animation duration in milliseconds
-  //     easing: "easeOutQuad",    // Smooth easing
-  //   });
-  // }, []);
-
-  // hover effect over icons in navigation bar
 
   return (
     <nav>
@@ -45,15 +72,15 @@ const NavBar = ({ color }) => {
         <div className="header">
           <div className="header-left">
             <a href="https://github.com/ethanluc7">
-              <img className="icons" src={githubLogo} alt="github logo" />
+              <img className="icons" src={githubLogo} alt="GitHub logo" />
             </a>
 
             <a href="https://www.linkedin.com/in/ethan-luc-29035325a/">
-              <img className="icons" src={linkedInLogo} alt="linkedin logo" />
+              <img className="icons" src={linkedInLogo} alt="LinkedIn logo" />
             </a>
 
             <a href="mailto:ethan.q.luc@gmail.com">
-              <img className="icons email" src={email} alt="email logo" />
+              <Mail className="icons email" alt="Mail logo" color="black" />
             </a>
           </div>
 
@@ -61,23 +88,19 @@ const NavBar = ({ color }) => {
             <HashLink
               to="#home"
               smooth
-              className={`rose left-most ${color}-left`}
+              className={`link left-most ${color}-left`}
             >
               home
             </HashLink>
 
-            <HashLink 
-             to="#about" 
-             smooth 
-             className={`rose ${color}-middle`}
-             >
+            <HashLink to="#about" smooth className={`link ${color}-middle`}>
               about
             </HashLink>
 
             <HashLink
               to="#projects"
               smooth
-              className={`rose right-most ${color}-right `}
+              className={`link right-most ${color}-right`}
             >
               projects
             </HashLink>

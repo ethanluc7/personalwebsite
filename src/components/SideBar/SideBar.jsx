@@ -1,5 +1,6 @@
 import "./SideBar.css";
-import { useState } from "react";
+import "../../index.css";
+import { useState, useEffect} from "react";
 import anime from "animejs/lib/anime.es.js";
 
 const SideBar = ({ sendData }) => {
@@ -16,6 +17,8 @@ const SideBar = ({ sendData }) => {
     sendData(colors[0]);
   };
 
+  const [hide, setHide] = useState("");
+
   const changeColor = (index) => {
     [colors[0], colors[index]] = [colors[index], colors[0]];
   };
@@ -25,6 +28,7 @@ const SideBar = ({ sendData }) => {
 
     if (startButtonStatus === false) {
       setStartButtonStatus((prevState) => !prevState);
+      setHide("");
 
       tl.add({
         targets: ".selector",
@@ -57,10 +61,50 @@ const SideBar = ({ sendData }) => {
           changeColor(index);
           returnColor();
           setStartButtonStatus((prevState) => !prevState);
+          setHide("hide");
+          
+
         },
       });
     }
   };
+
+  useEffect(() => {
+    const tl = anime.timeline();
+
+    tl.add({
+      targets: ".icons, .link, .first",
+      translateY: [-50, 0],
+      opacity: [0, 1],
+      easing: "easeOutQuad",
+      duration: 700,
+      delay: anime.stagger(240),
+    }).add({
+      targets: ".text",
+      translateY: [50, 0],
+      opacity: [0, 1],
+      easing: "easeOutQuad",
+      duration: 700,
+      delay: anime.stagger(240, { start: 400 }),
+    });
+
+    setTimeout(() => {
+      animate();
+      setStartButtonStatus(true);
+      setOtherButtonStatus(false);
+    }, 310 * 5);
+
+    setTimeout(() => {
+      anime({
+        targets: ".selector",
+        scale: [1, 1.1],
+        easing: "easeInOutSine",
+        duration: 1000,
+        direction: "alternate",
+        loop: true,
+      });
+    }, 310 * 5 + 1200);
+  }, []);
 
   return (
     <section>
@@ -77,7 +121,7 @@ const SideBar = ({ sendData }) => {
             animate(1);
           }}
           disabled={otherButtonStatus}
-          className={`selector second ${colors[1]}`}
+          className={`selector second ${colors[1]} ${hide}`}
           data-from="0"
           data-to="60"
         />
@@ -86,7 +130,7 @@ const SideBar = ({ sendData }) => {
             animate(2);
           }}
           disabled={otherButtonStatus}
-          className={`selector third  ${colors[2]}`}
+          className={`selector third  ${colors[2]} ${hide}`}
           data-from="80"
           data-to="120"
         />
@@ -95,7 +139,7 @@ const SideBar = ({ sendData }) => {
             animate(3);
           }}
           disabled={otherButtonStatus}
-          className={`selector fourth  ${colors[3]}`}
+          className={`selector fourth  ${colors[3]} ${hide}`}
           data-from="140"
           data-to="180"
         />

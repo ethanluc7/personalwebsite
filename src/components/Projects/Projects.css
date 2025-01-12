@@ -1,20 +1,108 @@
-.projects-header {
+.projects-container {
+  display: flex;
+  height: 100vh;
+  flex-direction: column;
+  padding-left: 15vw;
+  padding-right: 15vw;
+
+  .projects-header {
     font-weight: 700;
-    font-size: 3.5vw;
+    font-size: 2.5rem;
     line-height: 3rem;
     margin: 0;
     padding-top: 3rem;
-    padding-bottom: 1rem;
+    padding-bottom: 6vw;
+    opacity: 0;
+    font-family: "Inter";
+  }
 
+  .projects-main {
+    display: flex;
+    justify-content: space-between;
+    gap: 6rem;
 
+    .projects {
+      display: flex;
+      flex-direction: column;
+      width: 40vw;
+
+      .project {
+        font-size: 1.5rem;
+        font-family: "Domine", serif;
+        padding: 6vh 0;
+        opacity: 0;
+
+        &.top {
+          padding-top: 0;
+        }
+
+        .project-name {
+          font-weight: 700;
+          margin: 0;
+          display: inline-block;
+        }
+
+        .project-info {
+          font-size: 1.25rem;
+          padding-top: 1vh;
+          font-weight: 400;
+        }
+      }
+    }
+  }
+
+  .projects-image {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    border-radius: 2vw;
+    overflow: hidden;
+    z-index: 1;
+    display: flex;
+    justify-content: center;
+    padding: 10px;
+
+    .image {
+      max-height: 80vh;
+      max-width: 100%;
+      width: 100%;
+      height: auto;
+      object-fit: cover;
+      border-radius: 2vw;
+      position: relative;
+      z-index: 11;
+      opacity: 0;
+
+      &.hidden {
+        opacity: 0;
+      }
+    }
+  }
 }
 
-.projects-container {
-    display:flex;
-    height: 100vh;
- //   padding-left: 150px;
-    justify-content: space-between;
+.revealer {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 10;
+  transform: translateX(-101%);
+  opacity: 1;
+}
 
+.projects-right {
+  display: flex;
+  flex-direction: column;
+  padding-bottom: 1rem;
 
+  .project-about {
+    flex-direction: top;
 
+    .description-text {
+      font-family: "Domine", serif;
+      font-size: 1.25rem;
+      font-weight: 400;
+    }
+  }
 }

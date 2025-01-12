@@ -25,9 +25,6 @@
         line-height: 2.5rem;
         margin: 0;
 
-        /* text-shadow: 1px 1px black;
-                -webkit-text-stroke: 0.5px black; */
-
         &.sub {
           font-size: 1.25rem;
           line-height: 1.75rem;

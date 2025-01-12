@@ -1,7 +1,6 @@
 import React from "react";
 import "./Hero.css";
 import "../../index.css";
-import anime from "animejs/lib/anime.es.js";
 
 const Hero = ({ color }) => {
   return (

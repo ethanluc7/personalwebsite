@@ -1,70 +1,83 @@
-.about-header {
-  font-weight: 700;
-  font-size: 3.5vw;
-  line-height: 3rem;
-  margin: 0;
-  opacity: 0;
-  padding-bottom: 1rem;
-
-  /* text-decoration: underline;
-        text-decoration-color: red;
-        text-decoration-thickness: 3px;
-        text-underline-offset: 10px; */
-}
-
 .about-container {
   display: flex;
   height: 100vh;
+  padding-left: 15vw;
   align-items: center;
   justify-content: space-between;
 
-  .about-text-container {
+  .about-left {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
     width: 40vw;
 
-    .about-text {
-      padding: 5rem 0 5rem;
-      font-size: 1.5vw;
+    .about-header {
+      font-weight: 700;
+      font-size: 2.5rem;
+      line-height: 3rem;
+      margin: 0;
       opacity: 0;
-      font-weight: 100;
+      padding-bottom: 3rem;
+      font-family: "Inter";
+    }
 
-      &.top {
-        padding-top: 3rem;
+    .about-text-container {
+      .about-text {
+        padding: 0 0 2.5vw;
+        line-height: 2rem;
+        font-size: 1.25rem;
+        opacity: 0;
+        font-weight: 100;
+        font-family: "Domine", serif;
+        &.top {
+          padding-top: 0rem;
+        }
       }
     }
   }
 
   .main-logos-container {
     display: flex;
+
     width: 60vw;
-    padding-left: 50px;
+    padding-left: 4vw;
     justify-content: center;
-  //  height: 100vh;
 
     .centering-logos-container {
       display: flex;
       justify-content: center;
       align-items: center;
-    }
 
-    .left-logos-container {
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      padding: 60px;
-    }
+      .logos-container {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        padding: 4vw;
 
-    .right-logos-container {
-      display: flex;
-      flex-direction: column;
-      padding: 60px;
+        .logo {
+          opacity: 0;
+          border-radius: 1.5vw;
+          margin: 2rem 0;
+          height: auto;
+          width: 5vw;
+        }
+      }
     }
+  }
+}
 
-    .logo {
-      opacity: 0;
-      border-radius: 1.5vw;
-      margin: 3rem 0;
-      height: 5vw;
-      width: 5vw;
-    }
+@media (max-width: 800px) {
+  .about-container {
+    padding-right: 15vw;
+    padding-top: 10vw;
+    align-items: normal;
+  }
+
+  .main-logos-container {
+    display: none !important;
+  }
+
+  .about-left {
+    width: 100% !important;
   }
 }
