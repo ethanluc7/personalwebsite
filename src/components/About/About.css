@@ -38,7 +38,6 @@
 
   .main-logos-container {
     display: flex;
-
     width: 60vw;
     padding-left: 4vw;
     justify-content: center;
@@ -58,7 +57,7 @@
           opacity: 0;
           border-radius: 1.5vw;
           margin: 2rem 0;
-          height: auto;
+          height: 5vw;
           width: 5vw;
         }
       }

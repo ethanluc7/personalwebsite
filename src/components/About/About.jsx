@@ -120,7 +120,7 @@ const About = ({ color }) => {
                 src={visualstudiocodelogo}
                 alt="vs code logo"
               />
-              <img className="logo" src={minecraftlogo} alt="minecraft Logo" />
+              <img className="logo" src={minecraftlogo} alt="minecraft logo" />
               <img
                 className="logo"
                 src={stardewvalleylogo}
