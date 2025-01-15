@@ -4,6 +4,7 @@ import "../../index.css";
 import mapabledimage from "../../assets/mapabled.png";
 import welltrackerimage from "../../assets/welltracker.png";
 import defaultimage from "../../assets/default.jpg";
+import pomodorotimerimage from "../../assets/pomodoro-timer.png";
 import anime from "animejs/lib/anime.es.js";
 import "./Projects.css";
 
@@ -15,7 +16,8 @@ const Projects = ({ color }) => {
 
   const descriptions = [
     "A web app of a map that displays the locations of accessibility features",
-    "A simple python application that allows you to input and view data about Wells"
+    "A simple python application that allows you to input and view data about Wells",
+    "A full-stack pomodoro-timer that includes activity tracking, and a minimalistic design."
   ];
 
   const changeProject = (index, imgSrc) => {
@@ -139,13 +141,14 @@ const Projects = ({ color }) => {
                 Python, Tkinter
               </h3>
             </div>
-{/* 
-            <div className="project">
-              <h3 className={`project-name ${color}-middle`}>Project 3</h3>
+
+            <div className="project"
+             onMouseEnter={() => changeProject(2, pomodorotimerimage)}>
+              <h3 className={`project-name ${color}-middle`}>Pomodoro Timer App</h3>
               <h3 className={`project-info ${color}-right`}>
-                Some Sample Text 2
+                Javascript, Python, Next.js, Flask, PostgresSQL, AWS
               </h3>
-            </div> */}
+            </div> 
 
             
           </div>
