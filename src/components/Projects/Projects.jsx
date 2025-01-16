@@ -15,9 +15,9 @@ const Projects = ({ color }) => {
   const [description, setDescription] = useState("");
 
   const descriptions = [
+    "A full-stack pomodoro-timer that includes activity tracking, and a minimalistic design.",
     "A web app of a map that displays the locations of accessibility features",
-    "A simple python application that allows you to input and view data about Wells",
-    "A full-stack pomodoro-timer that includes activity tracking, and a minimalistic design."
+    "A simple python application that allows you to input and view data about Wells"
   ];
 
   const changeProject = (index, imgSrc) => {
@@ -126,30 +126,34 @@ const Projects = ({ color }) => {
             <div className="project top">
               <h3
                 className={`project-name ${color}-middle`}
-                onMouseEnter={() => changeProject(0, mapabledimage)}
+                onMouseEnter={() => changeProject(0, pomodorotimerimage)}
               >
-                Accessible Map
+                Pomodoro Timer App
               </h3>
+              <h3 className={`project-info ${color}-right`}>
+              Javascript, Python, Next.js, Flask, PostgresSQL, AWS
+              </h3>
+            </div>
+
+            <div className="project"
+             onMouseEnter={() => changeProject(1, mapabledimage)}>
+              <h3 className={`project-name ${color}-middle`}>Interactive Accessible Map </h3>
               <h3 className={`project-info ${color}-right`}>
                 Python, DJango, Google Maps API
               </h3>
-            </div>
+            </div> 
+
+
+
             <div className="project"
-            onMouseEnter={() => changeProject(1, welltrackerimage)}>
+            onMouseEnter={() => changeProject(2, welltrackerimage)}>
               <h3 className={`project-name ${color}-middle`}> Well Tracker</h3>
               <h3 className={`project-info ${color}-right`}>
                 Python, Tkinter
               </h3>
             </div>
 
-            <div className="project"
-             onMouseEnter={() => changeProject(2, pomodorotimerimage)}>
-              <h3 className={`project-name ${color}-middle`}>Pomodoro Timer App</h3>
-              <h3 className={`project-info ${color}-right`}>
-                Javascript, Python, Next.js, Flask, PostgresSQL, AWS
-              </h3>
-            </div> 
-
+            
             
           </div>
 
