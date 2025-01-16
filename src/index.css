@@ -285,6 +285,7 @@
 
 .projects-page {
   scroll-snap-align: start;
+  background: blue;
 }
 
 .snap {
