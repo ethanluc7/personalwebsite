@@ -22,6 +22,7 @@ const Projects = ({ color }) => {
 
   const changeProject = (index, imgSrc) => {
     const revealer = document.querySelector(".revealer");
+    setDisplayImage(imgSrc);
 
     const tl = anime.timeline();
 
@@ -32,7 +33,6 @@ const Projects = ({ color }) => {
       easing: "easeOutCubic",
       complete: () => {
         setDescription(descriptions[index]);
-        setDisplayImage(imgSrc);
         revealer.style.transform = "translateX(0%)";
         revealer.style.opacity = 1;
       },
