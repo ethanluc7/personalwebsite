@@ -163,7 +163,7 @@ const Projects = ({ color }) => {
                 src={displayImage}
                 alt="Project"
               />
-            </div>
+            </div> 
             <div className="project-about">
               <h3 className={`description-text ${color}-right`}>
                 {description}

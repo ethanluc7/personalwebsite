@@ -42,12 +42,12 @@ const SideBar = ({ sendData }) => {
           duration: 10,
         },
         delay: anime.stagger(240),
-        complete: function () {
-          setOtherButtonStatus((prevState) => !prevState);
-        },
+        // complete: function () {
+        //   setOtherButtonStatus((prevState) => !prevState);
+        // },
       });
     } else if (startButtonStatus === true) {
-      setOtherButtonStatus((prevState) => !prevState);
+     // setOtherButtonStatus((prevState) => !prevState);
 
       tl.add({
         targets: ".selector ",
@@ -93,6 +93,18 @@ const SideBar = ({ sendData }) => {
       setStartButtonStatus(true);
       setOtherButtonStatus(false);
     }, 310 * 5);
+
+      setTimeout(() => {
+      anime({
+        targets: ".selector",
+        scale: [1, 1.1],
+        easing: "easeInOutSine",
+        duration: 1000,
+        direction: "alternate",
+        loop: true,
+      });
+    }, 310 * 5 + 1200);
+
 
     
   }, []);
