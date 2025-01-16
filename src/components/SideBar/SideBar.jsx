@@ -94,16 +94,7 @@ const SideBar = ({ sendData }) => {
       setOtherButtonStatus(false);
     }, 310 * 5);
 
-    setTimeout(() => {
-      anime({
-        targets: ".selector",
-        scale: [1, 1.1],
-        easing: "easeInOutSine",
-        duration: 1000,
-        direction: "alternate",
-        loop: true,
-      });
-    }, 310 * 5 + 1200);
+    
   }, []);
 
   return (
