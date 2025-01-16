@@ -17,7 +17,7 @@ const Projects = ({ color }) => {
   const descriptions = [
     "A full-stack pomodoro-timer that includes activity tracking, and a minimalistic design.",
     "A web app of a map that displays the locations of accessibility features",
-    "A simple python application that allows you to input and view data about Wells"
+    "A simple python application that allows you to input and view data about Wells",
   ];
 
   const changeProject = (index, imgSrc) => {
@@ -131,30 +131,32 @@ const Projects = ({ color }) => {
                 Pomodoro Timer App
               </h3>
               <h3 className={`project-info ${color}-right`}>
-              Javascript, Python, Next.js, Flask, PostgresSQL, AWS
+                Javascript, Python, Next.js, Flask, PostgresSQL, AWS
               </h3>
             </div>
 
-            <div className="project"
-             onMouseEnter={() => changeProject(1, mapabledimage)}>
-              <h3 className={`project-name ${color}-middle`}>Interactive Accessible Map </h3>
+            <div className="project">
+              <h3
+                className={`project-name ${color}-middle`}
+                onMouseEnter={() => changeProject(1, mapabledimage)}
+              >
+                Interactive Accessible Map{" "}
+              </h3>
               <h3 className={`project-info ${color}-right`}>
                 Python, DJango, Google Maps API
               </h3>
-            </div> 
-
-
-
-            <div className="project"
-            onMouseEnter={() => changeProject(2, welltrackerimage)}>
-              <h3 className={`project-name ${color}-middle`}> Well Tracker</h3>
-              <h3 className={`project-info ${color}-right`}>
-                Python, Tkinter
-              </h3>
             </div>
 
-            
-            
+            <div className="project">
+              <h3
+                className={`project-name ${color}-middle`}
+                onMouseEnter={() => changeProject(2, welltrackerimage)}
+              >
+                {" "}
+                Well Tracker
+              </h3>
+              <h3 className={`project-info ${color}-right`}>Python, Tkinter</h3>
+            </div>
           </div>
 
           <div className="projects-right">
@@ -167,7 +169,7 @@ const Projects = ({ color }) => {
                 src={displayImage}
                 alt="Project"
               />
-            </div> 
+            </div>
             <div className="project-about">
               <h3 className={`description-text ${color}-right`}>
                 {description}
