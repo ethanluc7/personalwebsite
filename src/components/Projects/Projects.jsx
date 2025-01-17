@@ -131,7 +131,7 @@ const Projects = ({ color }) => {
                 Pomodoro Timer App
               </h3>
               <h3 className={`project-info ${color}-right`}>
-                Javascript, Python, Next.js, Flask, PostgresSQL, AWS
+                Typescript, Python, Next.js, Flask, PostgresSQL, AWS
               </h3>
             </div>
 
