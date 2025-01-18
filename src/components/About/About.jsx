@@ -1,4 +1,3 @@
-import React from "react";
 import "./About.css";
 import "../../index.css";
 import { useEffect, useRef } from "react";
