@@ -20,7 +20,6 @@ const Projects = ({ color }) => {
   ];
 
   const changeProject = (index, imgSrc) => {
-    const revealer = document.querySelector(".revealer");
     setDisplayImage(imgSrc);
 
     const tl = anime.timeline();
@@ -32,8 +31,6 @@ const Projects = ({ color }) => {
       easing: "easeOutCubic",
       complete: () => {
         setDescription(descriptions[index]);
-        revealer.style.transform = "translateX(0%)";
-        revealer.style.opacity = 1;
       },
     }).add({
       targets: ".image",
@@ -48,9 +45,6 @@ const Projects = ({ color }) => {
   const playAnimation = () => {
     const tl = anime.timeline();
 
-    const revealer = document.querySelector(".revealer");
-    const background = document.querySelector(".projects-image");
-
     tl.add({
       targets: ".projects-header, .project",
       translateX: [-75, 0],
@@ -63,11 +57,6 @@ const Projects = ({ color }) => {
       translateX: ["-101%", "0%"],
       duration: 800,
       easing: "easeOutCubic",
-      offset: "-=400",
-      complete: () => {
-        revealer.style.transform = "translateX(0%)";
-        revealer.style.opacity = 1;
-      },
     });
   };
 
