@@ -1,21 +1,19 @@
 import "./SideBar.css";
 import "../../index.css";
-import { useState, useEffect} from "react";
+import { useState, useEffect, useContext } from "react";
+import { ColorContext } from "../../pages/ColorContext";
 import anime from "animejs/lib/anime.es.js";
 
-const SideBar = ({ sendData }) => {
+const SideBar = () => {
   const [startButtonStatus, setStartButtonStatus] = useState(false);
   const [otherButtonStatus, setOtherButtonStatus] = useState(true);
+  const { setColor } = useContext(ColorContext);
   const [colors] = useState([
     "purple-orange",
     "blue-green",
     "pink-blue",
     "peach",
   ]);
-
-  const returnColor = () => {
-    sendData(colors[0]);
-  };
 
   const [hide, setHide] = useState("");
 
@@ -42,13 +40,8 @@ const SideBar = ({ sendData }) => {
           duration: 10,
         },
         delay: anime.stagger(240),
-        // complete: function () {
-        //   setOtherButtonStatus((prevState) => !prevState);
-        // },
       });
     } else if (startButtonStatus === true) {
-     // setOtherButtonStatus((prevState) => !prevState);
-
       tl.add({
         targets: ".selector ",
         translateY: function (el) {
@@ -59,11 +52,9 @@ const SideBar = ({ sendData }) => {
         easing: "easeInOutSine",
         complete: function () {
           changeColor(index);
-          returnColor();
+          setColor(colors[0]);
           setStartButtonStatus((prevState) => !prevState);
           setHide("hide");
-          
-
         },
       });
     }
@@ -94,7 +85,7 @@ const SideBar = ({ sendData }) => {
       setOtherButtonStatus(false);
     }, 310 * 5);
 
-      setTimeout(() => {
+    setTimeout(() => {
       anime({
         targets: ".selector",
         scale: [1, 1.1],
@@ -104,9 +95,6 @@ const SideBar = ({ sendData }) => {
         loop: true,
       });
     }, 310 * 5 + 1200);
-
-
-    
   }, []);
 
   return (

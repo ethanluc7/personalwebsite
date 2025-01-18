@@ -2,6 +2,8 @@ import React from "react";
 import "./Hero.css";
 import "../../index.css";
 
+import { useRef } from "react";
+
 const Hero = ({ color }) => {
   return (
     <section>

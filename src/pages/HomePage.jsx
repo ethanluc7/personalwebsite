@@ -6,11 +6,7 @@ import { useContext } from "react";
 import "../index.css";
 
 const HomePage = () => {
-  const { color, setColor } = useContext(ColorContext);
-
-  const getColor = (newColor) => {
-    setColor(newColor);
-  };
+  const { color } = useContext(ColorContext);
 
   return (
     <div id="home" className="grid">
@@ -23,7 +19,7 @@ const HomePage = () => {
       </div>
 
       <div className="sidebar">
-        <SideBar sendData={getColor} />
+        <SideBar />
       </div>
     </div>
   );
