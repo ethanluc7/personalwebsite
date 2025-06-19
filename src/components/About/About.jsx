@@ -84,8 +84,7 @@ const About = ({ color }) => {
           <div className={`about-header ${color}-middle`}>about</div>
           <div className="about-text-container">
             <h3 className="about-text top">
-              hi!, my name is ethan, and i’m currently a first year student in
-              1b studying math @ the university of waterloo.
+              hi!, my name is ethan, and i’m heading into 2A studying math @ the university of waterloo.
             </h3>
             <h3 className="about-text">
               in my spare time, i enjoy playing video games, working out, rock
@@ -93,8 +92,8 @@ const About = ({ color }) => {
               the right!
             </h3>
             <h3 className="about-text">
-              i’ve spent a lot of time working with react, and anime.js,
-              creating simple but smooth animations for webpages.
+              i would love to connect over shared hobbies, games, or anything in general! feel free to reach out 
+              on my linkedin! 
             </h3>
           </div>
         </div>
